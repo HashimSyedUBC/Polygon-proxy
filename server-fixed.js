@@ -141,6 +141,19 @@ app.get('/api/aggregates/:ticker/:from/:to', handleAggregates);
 // Route without /api prefix (for proxied calls from React dev server)
 app.get('/aggregates/:ticker/:from/:to', handleAggregates);
 
+// Routes with /polygon prefix for public access
+app.get('/polygon/aggregates/:ticker/:from/:to', handleAggregates);
+
+// Health check endpoint for Kubernetes
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
+
+// Health check with /polygon prefix for public access
+app.get('/polygon/health', (req, res) => {
+  res.status(200).json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
+
 const server = app.listen(PORT, () => {
   console.log(`[REST] Proxy server running on http://localhost:${PORT}`);
 });
