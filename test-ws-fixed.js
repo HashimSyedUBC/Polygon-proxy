@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 
 console.log('[TEST] Connecting to WebSocket proxy...');
-const ws = new WebSocket('ws://localhost:8090/ws');
+const ws = new WebSocket('wss://betapi.xynth.finance/polygon/ws');
 
 ws.on('open', () => {
   console.log('[TEST] ✅ WebSocket connected successfully!');

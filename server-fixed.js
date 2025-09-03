@@ -159,7 +159,7 @@ const server = app.listen(PORT, () => {
 });
 
 // WS proxy — multi-user, no frontend changes
-const wss = new WebSocket.Server({ server, path: '/ws' });
+const wss = new WebSocket.Server({ server, path: '/polygon/ws' });
 
 // Map Polygon event -> subscribe prefix per market
 const EVENT_PREFIX = {
